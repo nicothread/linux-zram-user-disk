@@ -1,0 +1,11 @@
+# mount ramdisk on boot
+[Unit]
+Description=Mount zram disk
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/srv/system/zramdisk/mount_zram_disk.sh
+[Install]
+WantedBy=multi-user.target
+

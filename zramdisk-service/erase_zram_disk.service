@@ -1,0 +1,12 @@
+# Copy file in /etc/systemd/system/, install service : systemctl enable erase_zram_disk to erase zram memory on shutdown.
+# TODO catch event after logoff
+[Unit]
+Requires=udisks2.service
+Requires=graphical.target
+After=graphical.target
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStop=/srv/system/zramdisk/erase_zram_disk.sh
+[Install]
+WantedBy=graphical.target

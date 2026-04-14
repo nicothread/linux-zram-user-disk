@@ -1,0 +1,2 @@
+# udev rule has to be install in /etc/udev/rules.d/
+ACTION=="add", KERNEL=="zram0", ATTR{comp_algorithm}="zstd", ATTR{disksize}="50M", RUN="/usr/bin/mkfs.ext4 /dev/%k", TAG+="systemd"
